@@ -2,7 +2,6 @@ import axios from 'axios';
 import useAuth from './useAuth';
 
  const instance = axios.create({
-   //https://lab-assistant-niter-cse.vercel.app
    baseURL: "http://localhost:3000/api",
    withCredentials: true,
  });

@@ -2,32 +2,13 @@ import { Link } from 'react-router-dom';
 import IntroImage from '../../src/assets/Images/WhatsApp Image 2024-12-16 at 1.06.27 AM (1).jpeg';
 import Container from '../Components/UI/Container';
 import Services from './Magazine';
+import Carousel from '../Components/UI/Carousel';
 
 const Home = () => {
   return (
     <Container>
       {/* Hero Section */}
-      <div className="grid grid-cols-1 md:grid-cols-1 py-20 gap-12">
-        {/* <div className="flex flex-col justify-center space-y-6">
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
-            <span className="block">Explore</span>
-            <span className="text-primary">Digital Magazine</span>
-            <span className="block text-secondary">E-Portal</span>
-          </h1>
-          <p className="text-gray-600 max-w-md">
-            Discover and manage your project equipment with ease. Explore our lab inventory or purchase the tools you need for your projects. Experience innovation, all at your fingertips!
-          </p>
-          
-        </div> */}
-        <div className="relative">
-          <img
-            src={IntroImage}
-            alt="Hero"
-            className="w-full h-full object-cover rounded-lg"
-          />
-          
-        </div>
-      </div>
+      <Carousel></Carousel>
 
       {/* Features Section */}
 <div className="bg-gradient-to-r from-gray-50 via-gray-100 to-gray-50 mt-10 py-16">

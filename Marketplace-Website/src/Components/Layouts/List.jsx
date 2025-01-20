@@ -4,47 +4,69 @@ import { NavLink } from 'react-router-dom';
 const List = () => {
     return (
       <>
-        <li>
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? "btn btn-primary" : "btn btn-ghost"
-            }
-            to={"/"}
-          >
-            Home
-          </NavLink>
-        </li>
+        {/* Men Category */}
+          <li className="group relative">
+            <a>Men</a>
+            <ul className="menu menu-compact absolute hidden group-hover:block w-96 mt-9  bg-base-100 rounded-box shadow-lg p-2 z-[50]">
+              <li>
+                <a>Shirts</a>
+              </li>
+              <li>
+                <a>Jeans</a>
+              </li>
+            </ul>
+          </li>
 
-        <li>
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? "btn btn-primary" : "btn btn-ghost"
-            }
-            to={"/team"}
-          >
-            Team
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? "btn btn-primary" : "btn btn-ghost"
-            }
-            to={"/magazine"}
-          >
-            Magazine
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? "btn btn-primary" : "btn btn-ghost"
-            }
-            to={"/blogs"}
-          >
-            blogs
-          </NavLink>
-        </li>
+          {/* Women Category */}
+          <li className="group relative">
+            <a>Women</a>
+            <ul className="menu menu-compact absolute hidden group-hover:block w-96 mt-9 bg-base-100 rounded-box shadow-lg p-2 z-[50]">
+              <li>
+                <a>Dresses</a>
+              </li>
+              <li>
+                <a>Handbags</a>
+              </li>
+            </ul>
+          </li>
+
+          {/* Kids Category */}
+          <li className="group relative">
+            <a>Kids</a>
+            <ul className="menu menu-compact absolute hidden group-hover:block w-96 mt-9 bg-base-100 rounded-box shadow-lg p-2 z-[50]">
+              <li>
+                <a>Toys</a>
+              </li>
+              <li>
+                <a>Clothing</a>
+              </li>
+            </ul>
+          </li>
+
+          {/* All Collections */}
+          <li className="group relative">
+            <a>All Collections</a>
+            <ul className="menu menu-compact absolute hidden group-hover:block w-96 mt-9 bg-base-100 rounded-box shadow-lg p-2 z-[50]">
+              <li>
+                <a>Toys</a>
+              </li>
+              <li>
+                <a>Clothing</a>
+              </li>
+              <li>
+                <a>Dresses</a>
+              </li>
+              <li>
+                <a>Handbags</a>
+              </li>
+              <li>
+                <a>Shirts</a>
+              </li>
+              <li>
+                <a>Jeans</a>
+              </li>
+            </ul>
+          </li>
       </>
     );
 };

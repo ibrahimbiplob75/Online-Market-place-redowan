@@ -48,11 +48,13 @@ async function run() {
     await client.connect();
     console.log("Connected to MongoDB!");
 
-    db = client.db("magazine");
+    db = client.db("marketplace");
     const users = db.collection("users");
-    const magazine = db.collection("post");
-    const blogs = db.collection("blog");
-    const bookings = db.collection("checkout");
+    const mens = db.collection("mens");
+    const womens = db.collection("womens");
+    const kids = db.collection("kids");
+    const checkouts = db.collection("checkout");
+    const bookings = db.collection("bookings");
 
     app.post("/api/user/access-token",async(req,res)=>{
         const user=req.body
@@ -275,7 +277,7 @@ async function run() {
   })
 
     app.get('/', (req, res) => {
-      res.send('Let\'s read the world!');
+      res.send('It is the server of redwan for online maket place ');
     });
 
     app.listen(port, () => {
