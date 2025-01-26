@@ -1,50 +1,58 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+
 
 const List = () => {
     return (
       <>
-        {/* Men Category */}
-          <li className="group relative">
-            <a>Men</a>
-            <ul className="menu menu-compact absolute hidden group-hover:block w-96 mt-9  bg-base-100 rounded-box shadow-lg p-2 z-[50]">
-              <li>
-                <a>Shirts</a>
-              </li>
-              <li>
-                <a>Jeans</a>
-              </li>
-            </ul>
-          </li>
+        
 
           {/* Women Category */}
           <li className="group relative">
-            <a>Women</a>
+            <a>Love Box</a>
             <ul className="menu menu-compact absolute hidden group-hover:block w-96 mt-9 bg-base-100 rounded-box shadow-lg p-2 z-[50]">
               <li>
-                <a>Dresses</a>
+                <a>Jamdani Love Book </a>
               </li>
               <li>
-                <a>Handbags</a>
+                <a>Kathan Love Box</a>
               </li>
             </ul>
           </li>
 
           {/* Kids Category */}
           <li className="group relative">
-            <a>Kids</a>
+            <a>Saree</a>
             <ul className="menu menu-compact absolute hidden group-hover:block w-96 mt-9 bg-base-100 rounded-box shadow-lg p-2 z-[50]">
               <li>
-                <a>Toys</a>
+                <a>Jamdani</a>
               </li>
               <li>
-                <a>Clothing</a>
+                <a>Katan</a>
+              </li>
+              <li>
+                <a>Silk</a>
+              </li>
+              <li>
+                <a>Half Silk</a>
+              </li>
+              <li>
+                <a>Cotton</a>
               </li>
             </ul>
           </li>
 
-          {/* All Collections */}
+          {/* Men Category */}
           <li className="group relative">
+            <a>shawl</a>
+            <ul className="menu menu-compact absolute hidden group-hover:block w-96 mt-9  bg-base-100 rounded-box shadow-lg p-2 z-[50]">
+              <li>
+                <a>Products</a>
+              </li>
+              
+            </ul>
+          </li>
+
+          {/* All Collections */}
+          {/* <li className="group relative">
             <a>All Collections</a>
             <ul className="menu menu-compact absolute hidden group-hover:block w-96 mt-9 bg-base-100 rounded-box shadow-lg p-2 z-[50]">
               <li>
@@ -66,7 +74,7 @@ const List = () => {
                 <a>Jeans</a>
               </li>
             </ul>
-          </li>
+          </li> */}
       </>
     );
 };

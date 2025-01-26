@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import IntroImage from '../../src/assets/Images/WhatsApp Image 2024-12-16 at 1.06.27 AM (1).jpeg';
+
 import Container from '../Components/UI/Container';
 import Services from './Magazine';
 import Carousel from '../Components/UI/Carousel';
