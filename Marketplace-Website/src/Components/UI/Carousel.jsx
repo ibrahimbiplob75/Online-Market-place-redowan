@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-
+import love_box from "../../assets/Images/sharee_love_box.jpg"
+import sharee from "../../assets/Images/sharee.jpg"
+import shawl from "../../assets/Images/SHAWL.jpg"
 const Carousel = () => {
     const [currentSlide, setCurrentSlide] = useState(1);
     const totalSlides = 4;
@@ -12,13 +14,13 @@ const Carousel = () => {
     }, []);
 
     return (
-        <div className="carousel w-full h-80 mt-5">
+        <div className="carousel w-full h-96 mt-5">
             {/* Slide 1 */}
             <div id="slide1" className={`carousel-item relative w-full h-full ${currentSlide === 1 ? 'block' : 'hidden'}`}>
                 <div
                     className="hero h-full"
                     style={{
-                        backgroundImage: "url(https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp)",
+                        backgroundImage: "url(https://jitben.com.bd/public/uploads/all/aHgs06tMYDaypMhDxKPLQKdckWf3KLqsB6ekWLK8.jpg)",
                     }}>
                     <div className="hero-overlay bg-opacity-60"></div>
                     <div className="hero-content text-neutral-content text-center">
@@ -38,7 +40,7 @@ const Carousel = () => {
                 <div
                     className="hero h-full"
                     style={{
-                        backgroundImage: "url(https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp)",
+                        backgroundImage: "url(https://rang-bd.com/wp-content/uploads/2024/03/RBL-SHR-00524-3.webp)",
                     }}>
                     <div className="hero-overlay bg-opacity-60"></div>
                     <div className="hero-content text-neutral-content text-center">
@@ -58,7 +60,7 @@ const Carousel = () => {
                 <div
                     className="hero h-full"
                     style={{
-                        backgroundImage: "url(https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp)",
+                        backgroundImage: "url(https://cdn.kaykraft.com/wp-content/uploads/2024/11/SHAWL-CT-LDS-244-600x899.jpg)",
                     }}>
                     <div className="hero-overlay bg-opacity-60"></div>
                     <div className="hero-content text-neutral-content text-center">
@@ -78,7 +80,7 @@ const Carousel = () => {
                 <div
                     className="hero h-full"
                     style={{
-                        backgroundImage: "url(https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp)",
+                        backgroundImage: "url(https://jitben.com.bd/public/uploads/all/X46M6wFwXBFUGr68OFNP2WkGiRXOjSpvy4Sb2Jn2.jpg)",
                     }}>
                     <div className="hero-overlay bg-opacity-60"></div>
                     <div className="hero-content text-neutral-content text-center">

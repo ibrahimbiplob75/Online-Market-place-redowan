@@ -2,8 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import UseAxios from "../Hook/UseAxios";
 import Container from "../Components/UI/Container";
 import Loader from "../Components/UI/Loader";
-import MagazineCard from "../Components/MagazineCard";
 import { useEffect, useState } from "react";
+import ProductCard from "../Components/ProductCard";
 
 const Magazine = () => {
   const Axios = UseAxios();
@@ -92,7 +92,7 @@ const Magazine = () => {
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {services?.data?.result?.map((service) => (
-            <MagazineCard key={service?._id} service={service} />
+            <ProductCard key={service?._id} service={service} />
           ))}
         </div>
         

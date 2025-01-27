@@ -5,7 +5,7 @@ const List = () => {
       <>
         
 
-          {/* Women Category */}
+          
           <li className="group relative">
             <a>Love Box</a>
             <ul className="menu menu-compact absolute hidden group-hover:block w-96 mt-9 bg-base-100 rounded-box shadow-lg p-2 z-[50]">
@@ -18,7 +18,7 @@ const List = () => {
             </ul>
           </li>
 
-          {/* Kids Category */}
+          
           <li className="group relative">
             <a>Saree</a>
             <ul className="menu menu-compact absolute hidden group-hover:block w-96 mt-9 bg-base-100 rounded-box shadow-lg p-2 z-[50]">
@@ -40,7 +40,7 @@ const List = () => {
             </ul>
           </li>
 
-          {/* Men Category */}
+          
           <li className="group relative">
             <a>shawl</a>
             <ul className="menu menu-compact absolute hidden group-hover:block w-96 mt-9  bg-base-100 rounded-box shadow-lg p-2 z-[50]">
