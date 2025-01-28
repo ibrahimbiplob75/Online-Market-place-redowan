@@ -6,8 +6,6 @@ import sharee from "../../src/assets/Images/sharee.jpg"
 import shawl from "../../src/assets/Images/SHAWL.jpg"
 const OurCollections = () => {
   const navigate = useNavigate();
-
-  // Handle navigation when clicking on a category card
   const handleCategoryClick = (categoryName) => {
     navigate(`/products?category=${categoryName}`);
   };

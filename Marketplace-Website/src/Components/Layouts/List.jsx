@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const List = () => {
@@ -7,7 +8,7 @@ const List = () => {
 
           
           <li className="group relative">
-            <a>Love Box</a>
+            <Link to={"/love-box"}>Love Box</Link>
             <ul className="menu menu-compact absolute hidden group-hover:block w-96 mt-9 bg-base-100 rounded-box shadow-lg p-2 z-[50]">
               <li>
                 <a>Jamdani Love Book </a>
@@ -20,7 +21,7 @@ const List = () => {
 
           
           <li className="group relative">
-            <a>Saree</a>
+            <Link to={"/saree"}>Saree</Link>
             <ul className="menu menu-compact absolute hidden group-hover:block w-96 mt-9 bg-base-100 rounded-box shadow-lg p-2 z-[50]">
               <li>
                 <a>Jamdani</a>
@@ -42,7 +43,7 @@ const List = () => {
 
           
           <li className="group relative">
-            <a>shawl</a>
+            <Link to={"/shawl"}>shawl</Link>
             <ul className="menu menu-compact absolute hidden group-hover:block w-96 mt-9  bg-base-100 rounded-box shadow-lg p-2 z-[50]">
               <li>
                 <a>Products</a>

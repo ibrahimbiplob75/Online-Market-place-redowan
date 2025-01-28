@@ -1,25 +1,26 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
-import About from "../Pages/About";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
-import Services from "../Pages/Magazine";
+import Services from "../Pages/Love_Box";
 import Booking from "../Pages/Booking";
 import TrackOrder from "../Pages/TrackOrder";
 import PrivateRoute from "../Private/PrivateRoute";
 import Dashboard from "../Components/Layouts/Dashboard";
-import AddEquipment from "../Pages/AddMagazine";
+import AddEquipment from "../Pages/AddProducts";
 import MangaeBooking from "../Pages/MangaeBooking";
 import ManageUser from "../Pages/ManageUser";
 import ManageEquipment from "../Pages/ManageMagazine";
 import UpdateEquipment from "../Pages/UpdateMagazine";
-import Team from "../Pages/Team";
 import Blogs from "../Pages/blogs";
 import BlogDetails from "../Pages/BlogsDetails";
 import MagazineDetails from "../Pages/MagazineDetails";
 import AdminRoute from "../Private/AdminRoute";
 import AddBlogPost from "../Pages/AddBlog";
+import Love_Box from "../Pages/Love_Box";
+import Saree from "../Pages/Saree";
+import Shawl from "../Pages/Shawl";
 
 
 
@@ -31,31 +32,25 @@ const route = createBrowserRouter([
       {
         index: true,
         element: (
-          
-            <Home></Home>
-          
+          <Home></Home>
         ),
       },
       {
-        path: "/team",
+        path: "/love-box",
         element: (
-          
-            <Team></Team>
-          
+            <Love_Box></Love_Box>
         ),
       },
       {
-        path: "/blogs",
+        path: "/saree",
         element: (
-          <PrivateRoute><Blogs></Blogs></PrivateRoute> 
+          <PrivateRoute><Saree></Saree></PrivateRoute> 
         ),
       },
       {
-        path: "/magazine",
+        path: "/shawl",
         element: (
-          
-            <Services></Services>
-          
+            <Shawl></Shawl>
         ),
       },
       {
@@ -103,19 +98,19 @@ const route = createBrowserRouter([
         element:<PrivateRoute><AdminRoute><ManageUser></ManageUser></AdminRoute></PrivateRoute> ,
       },
       {
-        path: "/dashboard/add-magazine",
+        path: "/dashboard/add-product",
         element: <PrivateRoute><AdminRoute><AddEquipment></AddEquipment></AdminRoute></PrivateRoute>,
       },
       {
-        path: "/dashboard/booked-magazine",
+        path: "/dashboard/booked-product",
         element: <PrivateRoute><AdminRoute><MangaeBooking></MangaeBooking></AdminRoute></PrivateRoute>,
       },
       {
-        path: "/dashboard/manage-magazine",
+        path: "/dashboard/manage-product",
         element: <PrivateRoute><AdminRoute><ManageEquipment></ManageEquipment></AdminRoute></PrivateRoute>,
       },
       {
-        path: "/dashboard/update-magazine/:id",
+        path: "/dashboard/update-product/:id",
         element: <PrivateRoute><AdminRoute><UpdateEquipment></UpdateEquipment></AdminRoute></PrivateRoute>,
         
       },

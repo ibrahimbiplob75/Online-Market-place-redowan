@@ -38,7 +38,15 @@ const Dashboard = () => {
           </li>
           <li className="text-lg font-medium">
             <Link
-              to="/dashboard/products"
+              to="/dashboard/users"
+              className="hover:bg-gray-700 rounded-md p-3 block"
+            >
+              Manage Users
+            </Link>
+          </li>
+          <li className="text-lg font-medium">
+            <Link
+              to="/dashboard/manage-product"
               className="hover:bg-gray-700 rounded-md p-3 block"
             >
               Manage Products
@@ -46,20 +54,13 @@ const Dashboard = () => {
           </li>
           <li className="text-lg font-medium">
             <Link
-              to="/dashboard/orders"
+              to="/dashboard/booked-product"
               className="hover:bg-gray-700 rounded-md p-3 block"
             >
               Manage Orders
             </Link>
           </li>
-          <li className="text-lg font-medium">
-            <Link
-              to="/dashboard/categories"
-              className="hover:bg-gray-700 rounded-md p-3 block"
-            >
-              Manage Categories
-            </Link>
-          </li>
+          
           <li className="text-lg font-medium">
             <Link
               to="/dashboard/add-product"
@@ -70,7 +71,7 @@ const Dashboard = () => {
           </li>
           <li className="text-lg font-medium">
             <Link
-              to="/dashboard/reviews"
+              to="#"
               className="hover:bg-gray-700 rounded-md p-3 block"
             >
               Customer Reviews
@@ -78,7 +79,7 @@ const Dashboard = () => {
           </li>
           <li className="text-lg font-medium">
             <Link
-              to="/dashboard/sales-report"
+              to="#"
               className="hover:bg-gray-700 rounded-md p-3 block"
             >
               Sales Reports

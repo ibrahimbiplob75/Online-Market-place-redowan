@@ -5,7 +5,7 @@ import Loader from "../Components/UI/Loader";
 import { useEffect, useState } from "react";
 import ProductCard from "../Components/ProductCard";
 
-const Magazine = () => {
+const Shawl = () => {
   const Axios = UseAxios();
   const [price, setPrice] = useState("");
   const [page, setPage] = useState(1);
@@ -13,34 +13,35 @@ const Magazine = () => {
   const [Category, SetCategory] = useState([]);
 
   const limit = 6;
+  const noOfpage=5
 
-  useEffect(() => {
-    Axios.get("/categories")
-      .then((res) => res.data)
-      .then((data) => SetCategory(data));
-  }, []);
+  // useEffect(() => {
+  //   Axios.get("/categories")
+  //     .then((res) => res.data)
+  //     .then((data) => SetCategory(data));
+  // }, []);
 
-  const getServices = async () => {
-    const response = await Axios.get(
-      `/user/magazines/?sortField=details.pricing&sortOrder=${price}&category=${category}&page=${page}&limit=${limit}`
-    );
-    return response;
-  };
+  // const getServices = async () => {
+  //   const response = await Axios.get(
+  //     `/user/magazines/?sortField=details.pricing&sortOrder=${price}&category=${category}&page=${page}&limit=${limit}`
+  //   );
+  //   return response;
+  // };
 
-  const {
-    data: services,
-    refetch,
-    isLoading,
-  } = useQuery({
-    queryKey: ["services", price, page],
-    queryFn: getServices,
-  });
+  // const {
+  //   data: services,
+  //   refetch,
+  //   isLoading,
+  // } = useQuery({
+  //   queryKey: ["services", price, page],
+  //   queryFn: getServices,
+  // });
 
-  if (isLoading) {
-    return <Loader />;
-  }
+  // if (isLoading) {
+  //   return <Loader />;
+  // }
 
-  const noOfpage = Math.ceil(services.data?.total / limit);
+  // const noOfpage = Math.ceil(services.data?.total / limit);
 
   const handlePrev = () => {
     if (page > 1) {
@@ -60,19 +61,18 @@ const Magazine = () => {
         {/* Header Section */}
         <div className="my-12 flex flex-col items-center bg-gradient-to-r from-purple-400 to-blue-500 text-white rounded-2xl p-8 shadow-lg">
           <h1 className="text-3xl font-bold mb-4">
-            Discover {services?.data?.total} Top Magazines
+             উন্নত ও অরিজিনাল শাল এর কালেকশন 
           </h1>
           <p className="text-sm md:text-lg max-w-2xl text-center">
-            Explore our curated collection of top-tier magazines across various
-            categories. Stay informed, entertained, and inspired by the latest
-            stories, articles, and insights.
+            <span className="text-2xl">শালের ধরন:</span>   
+              কাশ্মীরি পশমিনা শাল উষ্ণ এবং মসৃণ, যা শীতকালের জন্য আদর্শ। উলের শাল দৈনন্দিন ব্যবহারে হালকা ও আরামদায়ক। সিল্ক শাল ঝকঝকে ও মসৃণ, যা অনুষ্ঠানের জন্য উপযুক্ত। হ্যান্ডলুম শাল ঐতিহ্যবাহী বুননের সৌন্দর্য তুলে ধরে। 
           </p>
         </div>
 
         {/* Filters */}
         <div className="flex flex-col md:flex-row justify-between items-center bg-white p-5 rounded-lg shadow-md mb-10">
           <h2 className="font-semibold text-lg mb-4 md:mb-0">
-            Filter Magazines:
+            Find your choiced category:
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 w-full md:w-auto">
             <div className="form-control">
@@ -80,8 +80,8 @@ const Magazine = () => {
                 onChange={(e) => setPrice(e.target.value)}
                 className="select select-bordered w-full max-w-xs"
               >
-                <option value={"desc"}>Latest Magazines</option>
-                <option value={"asc"}>Top Magazines</option>
+                <option value={"desc"}>Hight to Low</option>
+                <option value={"asc"}>Low to High</option>
               </select>
             </div>
           </div>
@@ -91,9 +91,12 @@ const Magazine = () => {
       {/* Magazine Cards */}
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {services?.data?.result?.map((service) => (
-            <ProductCard key={service?._id} service={service} />
-          ))}
+          <ProductCard></ProductCard>
+          <ProductCard></ProductCard>
+          <ProductCard></ProductCard>
+          <ProductCard></ProductCard>
+          <ProductCard></ProductCard>
+          <ProductCard></ProductCard>
         </div>
         
 
@@ -129,4 +132,4 @@ const Magazine = () => {
   );
 };
 
-export default Magazine;
+export default Shawl;
