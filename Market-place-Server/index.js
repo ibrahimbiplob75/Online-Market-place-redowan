@@ -50,9 +50,7 @@ async function run() {
 
     db = client.db("marketplace");
     const users = db.collection("users");
-    const mens = db.collection("mens");
-    const womens = db.collection("womens");
-    const kids = db.collection("kids");
+    const products = db.collection("products");
     const checkouts = db.collection("checkout");
     const bookings = db.collection("bookings");
 
@@ -120,19 +118,19 @@ async function run() {
         const query={_id:new ObjectId(id)}
         const result=await users.deleteOne(query)
         res.send(result)
-    })
+  })
 
 
 
   //Data inserted of new magazine
-  app.post("/api/admin/create-magazine",async(req,res)=>{
-      const Magazine=req.body 
-      const result=await magazine.insertOne(Magazine)
+  app.post("/api/admin/create-post",async(req,res)=>{
+      const product=req.body 
+      const result=await products.insertOne(product)
       res.send(result)
 
     })
 
-    app.get("/api/user/magazines",async(req,res)=>{
+  app.get("/api/user/products",async(req,res)=>{
         const queryCategory=req.query?.category 
         const sortField=req.query?.sortField
         const sortOrder=req.query?.sortOrder
@@ -155,38 +153,36 @@ async function run() {
         }
         
 
-        const result=await magazine.find(catQuery).skip(skip).limit(limit).sort(sortObj).toArray()
-        const total=await magazine.countDocuments()
+        const result=await products.find(catQuery).skip(skip).limit(limit).sort(sortObj).toArray()
+        const total=await products.countDocuments()
         res.send({total,result})
     })
 
-    app.get("/api/user/magazine/:id",async(req,res)=>{
+    app.get("/api/user/product/:id",async(req,res)=>{
         const id=req.params.id 
         const query={_id:new ObjectId(id)}
-        const result=await magazine.findOne(query)
+        const result=await products.findOne(query)
         res.send(result)
     })
 
-    app.delete("/api/user/cancel-magazine/:id",async(req,res)=>{
+    app.delete("/api/user/cancel-product/:id",async(req,res)=>{
         const id=req.params.id 
         const query={_id:new ObjectId(id)}
-        const result=await magazine.deleteOne(query)
+        const result=await products.deleteOne(query)
         res.send(result)
     })
 
-    app.put("/api/admin/update-magazine/:id", async (req, res) => {
+    app.put("/api/admin/update-product/:id", async (req, res) => {
       const id = req.params.id;
-      const { _id, ...updatedData } = req.body; // Remove _id from the data to avoid the error
-
+      const { _id, ...updatedData } = req.body; 
       const query = { _id: new ObjectId(id) };
       const updateDoc = { $set: updatedData };
-
       try {
-        const result = await magazine.updateOne(query, updateDoc);
+        const result = await products.updateOne(query, updateDoc);
         res.send(result);
       } catch (error) {
-        console.error("Failed to update magazine:", error);
-        res.status(500).send({ error: "Failed to update magazine" });
+        console.error("Failed to update product:", error);
+        res.status(500).send({ error: "Failed to update product" });
       }
     });
 
@@ -195,25 +191,25 @@ async function run() {
 
 
     //blog related api
-    app.post("/api/admin/create-blogs",async(req,res)=>{
-      const blog=req.body 
-      const result=await blogs.insertOne(blog)
-      res.send(result)
+    // app.post("/api/admin/create-blogs",async(req,res)=>{
+    //   const blog=req.body 
+    //   const result=await blogs.insertOne(blog)
+    //   res.send(result)
 
-    })
+    // })
 
-    app.get("/api/user/blogs",async(req,res)=>{
+    // app.get("/api/user/blogs",async(req,res)=>{
         
-        const result=await blogs.find().toArray()
-        res.send(result)
-    })
+    //     const result=await blogs.find().toArray()
+    //     res.send(result)
+    // })
 
-    app.get("/api/user/blogs/:id",async(req,res)=>{
-        const id=req.params.id 
-        const query={_id:new ObjectId(id)}
-        const result=await blogs.findOne(query)
-        res.send(result)
-    })
+    // app.get("/api/user/blogs/:id",async(req,res)=>{
+    //     const id=req.params.id 
+    //     const query={_id:new ObjectId(id)}
+    //     const result=await blogs.findOne(query)
+    //     res.send(result)
+    // })
 
     
 
@@ -289,5 +285,4 @@ async function run() {
   }
 }
 
-// Start the server and keep the client connection open
 run().catch(console.dir);
