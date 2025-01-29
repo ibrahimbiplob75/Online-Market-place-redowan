@@ -11,10 +11,10 @@ const List = () => {
             <Link to={"/love-box"}>Love Box</Link>
             <ul className="menu menu-compact absolute hidden group-hover:block w-96 mt-9 bg-base-100 rounded-box shadow-lg p-2 z-[50]">
               <li>
-                <a>Jamdani Love Book </a>
+                <Link to={"/love-box"}>Jamdani Love Book </Link>
               </li>
               <li>
-                <a>Kathan Love Box</a>
+                <Link to={"/love-box"}>Kathan Love Box</Link>
               </li>
             </ul>
           </li>
@@ -24,19 +24,19 @@ const List = () => {
             <Link to={"/saree"}>Saree</Link>
             <ul className="menu menu-compact absolute hidden group-hover:block w-96 mt-9 bg-base-100 rounded-box shadow-lg p-2 z-[50]">
               <li>
-                <a>Jamdani</a>
+                <Link to={"/saree"}>Jamdani</Link>
               </li>
               <li>
-                <a>Katan</a>
+                <Link to={"/saree"}>Katan</Link>
               </li>
               <li>
-                <a>Silk</a>
+                <Link to={"/saree"}>Silk</Link>
               </li>
               <li>
-                <a>Half Silk</a>
+                <Link to={"/saree"}>Half Silk</Link>
               </li>
               <li>
-                <a>Cotton</a>
+                <Link to={"/saree"}>Cotton</Link>
               </li>
             </ul>
           </li>
@@ -46,7 +46,7 @@ const List = () => {
             <Link to={"/shawl"}>shawl</Link>
             <ul className="menu menu-compact absolute hidden group-hover:block w-96 mt-9  bg-base-100 rounded-box shadow-lg p-2 z-[50]">
               <li>
-                <a>Products</a>
+                <Link to={"/shawl"}>Products</Link>
               </li>
               
             </ul>

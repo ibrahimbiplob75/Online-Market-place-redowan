@@ -100,18 +100,20 @@ const AddProducts = () => {
           <label className="block text-gray-700 font-semibold mb-2" htmlFor="category">
             Category
           </label>
-          <input
-            type="text"
+          <select
             id="category"
             name="category"
             className="input input-bordered w-full p-3"
-            placeholder="Enter product category (e.g., saree, shawl)"
-            value={formData.category}
+            value={formData?.category}
             onChange={handleInputChange}
             required
-          />
+          >
+            <option value="">Select Category</option>
+            <option value="Love_Box">Love Box</option>
+            <option value="Saree">Saree</option>
+            <option value="Shawl">Shawl</option>
+          </select>
         </div>
-
         {/* Total Collection */}
         <div className="mb-4">
           <label className="block text-gray-700 font-semibold mb-2" htmlFor="total_collection">

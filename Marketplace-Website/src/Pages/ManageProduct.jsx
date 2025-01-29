@@ -7,7 +7,7 @@ import Container from "../Components/UI/Container";
 import { Link } from "react-router-dom";
 import UserRole from "../Hook/UserRole";
 
-const ManageMagazine = () => {
+const ManageProduct = () => {
     const [role] = UserRole();
     const Axios = UseAxios();
 
@@ -19,7 +19,7 @@ const ManageMagazine = () => {
 
   
   const getServices = async () => {
-    const response = await Axios.get(`/user/magazines/`);
+    const response = await Axios.get(`/user/products`);
     return response;
   };
   const {
@@ -34,7 +34,7 @@ const ManageMagazine = () => {
   const { mutate } = useMutation({
     mutationKey: ["services"],
     mutationFn: async (id) => {
-      const res = await Axios.delete(`/user/cancel-magazine/${id}`);
+      const res = await Axios.delete(`/user/cancel-Product/${id}`);
       return res;
     },
     onSuccess: () => {
@@ -59,9 +59,9 @@ const ManageMagazine = () => {
             <thead>
               <tr>
                 <th>No</th>
-                <th>Magazine Name</th>
-                <th>Magazine price</th>
-                <th>Magazine Descriptions</th>
+                <th>Product Name</th>
+                <th>Product price</th>
+                <th>Product Descriptions</th>
                 <th> Action </th>
               </tr>
             </thead>
@@ -73,7 +73,7 @@ const ManageMagazine = () => {
                   <td>{equipment?.price}</td>
                   <td>{equipment?.description}</td>
                   <td className="flex justify-around items-center gap-3">
-                    <Link to={`/dashboard/update-magazine/${equipment?._id}`}>
+                    <Link to={`/dashboard/update-Product/${equipment?._id}`}>
                       <button className="btn btn-warning">Update</button>
                     </Link>
                     <button
@@ -95,4 +95,4 @@ const ManageMagazine = () => {
   );
 };
 
-export default ManageMagazine;
+export default ManageProduct;

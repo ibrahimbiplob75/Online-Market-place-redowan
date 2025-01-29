@@ -3,7 +3,6 @@ import App from "../App";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
-import Services from "../Pages/Love_Box";
 import Booking from "../Pages/Booking";
 import TrackOrder from "../Pages/TrackOrder";
 import PrivateRoute from "../Private/PrivateRoute";
@@ -11,9 +10,7 @@ import Dashboard from "../Components/Layouts/Dashboard";
 import AddEquipment from "../Pages/AddProducts";
 import MangaeBooking from "../Pages/MangaeBooking";
 import ManageUser from "../Pages/ManageUser";
-import ManageEquipment from "../Pages/ManageMagazine";
-import UpdateEquipment from "../Pages/UpdateMagazine";
-import Blogs from "../Pages/blogs";
+import UpdateEquipment from "../Pages/UpdateProduct";
 import BlogDetails from "../Pages/BlogsDetails";
 import MagazineDetails from "../Pages/MagazineDetails";
 import AdminRoute from "../Private/AdminRoute";
@@ -21,6 +18,7 @@ import AddBlogPost from "../Pages/AddBlog";
 import Love_Box from "../Pages/Love_Box";
 import Saree from "../Pages/Saree";
 import Shawl from "../Pages/Shawl";
+import ManageProduct from "../Pages/ManageProduct";
 
 
 
@@ -107,7 +105,7 @@ const route = createBrowserRouter([
       },
       {
         path: "/dashboard/manage-product",
-        element: <PrivateRoute><AdminRoute><ManageEquipment></ManageEquipment></AdminRoute></PrivateRoute>,
+        element: <PrivateRoute><AdminRoute><ManageProduct></ManageProduct></AdminRoute></PrivateRoute>,
       },
       {
         path: "/dashboard/update-product/:id",

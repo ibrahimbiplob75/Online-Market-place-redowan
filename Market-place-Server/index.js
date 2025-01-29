@@ -122,8 +122,8 @@ async function run() {
 
 
 
-  //Data inserted of new magazine
-  app.post("/api/admin/create-post",async(req,res)=>{
+  //Data inserted of new products
+  app.post("/api/admin/create-product",async(req,res)=>{
       const product=req.body 
       const result=await products.insertOne(product)
       res.send(result)
