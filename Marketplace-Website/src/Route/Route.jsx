@@ -19,6 +19,7 @@ import Love_Box from "../Pages/Love_Box";
 import Saree from "../Pages/Saree";
 import Shawl from "../Pages/Shawl";
 import ManageProduct from "../Pages/ManageProduct";
+import ProductDetails from "../Components/ProductDetails";
 
 
 
@@ -42,7 +43,7 @@ const route = createBrowserRouter([
       {
         path: "/saree",
         element: (
-          <PrivateRoute><Saree></Saree></PrivateRoute> 
+          <Saree></Saree>
         ),
       },
       {
@@ -52,8 +53,8 @@ const route = createBrowserRouter([
         ),
       },
       {
-        path:"/magazine/details/:id",
-        element:<PrivateRoute><MagazineDetails></MagazineDetails></PrivateRoute>
+        path:"/product/details/:id",
+        element:<ProductDetails></ProductDetails>
       },
       
       {

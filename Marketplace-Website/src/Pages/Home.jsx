@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+
 import Container from '../Components/UI/Container';
 import Carousel from '../Components/UI/Carousel';
 import ProductCard from '../Components/ProductCard';
@@ -7,8 +7,24 @@ import { FaHeadphonesAlt } from "react-icons/fa";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { IoIosTimer } from "react-icons/io";
 import { TbTruckReturn } from "react-icons/tb";
+import { useQuery } from '@tanstack/react-query';
+import UseAxios from '../Hook/UseAxios';
 
 const Home = () => {
+  const Axios = UseAxios();
+  const getProducts = async () => {
+    const response = await Axios.get(`/user/products`);
+    return response;
+  };
+  const {
+    data: Products,
+    refetch,
+    isLoading,
+  } = useQuery({
+    queryKey: ["Products"],
+    queryFn: getProducts,
+  });
+  console.log(Products?.data)
   return (
     <Container>
       {/* Hero Section */}
@@ -19,11 +35,9 @@ const Home = () => {
   <div className='w-full max-w-7xl'>
     <h1 className='text-3xl font-bold text-center mb-8'>New Arrival</h1>
     <div className='grid w-full items-center grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 m-4 place-items-center'>
-      <ProductCard></ProductCard>
-      <ProductCard></ProductCard>
-      <ProductCard></ProductCard>
-      <ProductCard></ProductCard>
-      <ProductCard></ProductCard>
+    {Products?.data?.result.map(product=><ProductCard product={product} key={product._id}></ProductCard>)}
+      
+      
     </div>
   </div>
       </div>

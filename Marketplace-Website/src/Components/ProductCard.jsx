@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import love_box from "../../src/assets/Images/sharee_love_box.jpg"
 
 
-const ProductCard = ({ service }) => {
+const ProductCard = ({ product }) => {
   return (
-    <div className="card bg-base-100 w-96 shadow-xl">
+    <Link to={`/product/details/${product?._id}`} className="card bg-base-100 w-96 shadow-xl">
       <figure>
         <img
           src={love_box}
@@ -46,7 +46,7 @@ const ProductCard = ({ service }) => {
           <div className="badge badge-outline">Women's Wear</div>
         </div>
       </div>
-    </div>
+    </Link>
 
   );
 };

@@ -2,6 +2,8 @@ import axios from 'axios';
 import useAuth from './useAuth';
 
  const instance = axios.create({
+  //https://market-place-server-akwret3bb-md-ibrahim-biplobs-projects.vercel.app/
+  //http://localhost:3000
    baseURL: "http://localhost:3000/api",
    withCredentials: true,
  });
