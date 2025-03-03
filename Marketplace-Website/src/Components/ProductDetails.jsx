@@ -4,35 +4,34 @@ import PropTypes from "prop-types";
 import UseAxios from "../Hook/UseAxios";
 import Container from "./UI/Container";
 
-const ProductDetails = ({ products }) => {
+const ProductDetails = () => {
   const Axios = UseAxios();
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  console.log(id)
-  
+
   useEffect(() => {
-      const fetchProductDetails = async () => {
-        try {
-          const response = await Axios.get(`/user/product/${id}`);
-          setProduct(response?.data);
-        } catch (error) {
-          console.error("Failed to fetch Product details:", error);
-          toast.error("Failed to load Product details.");
-        }
-      };
-  
-      fetchProductDetails();
+    const fetchProductDetails = async () => {
+      try {
+        const response = await Axios.get(`/user/product/${id}`);
+        setProduct(response?.data);
+      } catch (error) {
+        console.error("Failed to fetch Product details:", error);
+        toast.error("Failed to load Product details.");
+      }
+    };
+
+    fetchProductDetails();
   }, [id, Axios]);
 
   const [quantity, setQuantity] = useState(1);
-  console.log(product)
+
   if (!product) {
-    return <div>Product not found</div>;
+    return <div>Loading...</div>; // Show a loading state while fetching data
   }
 
   const handleAddToCart = () => {
     // Implement your add to cart logic here
-    console.log(`Added ${quantity} of ${product.title} to cart`);
+    console.log(`Added ${quantity} of ${product?.title} to cart`);
   };
 
   return (
@@ -40,11 +39,11 @@ const ProductDetails = ({ products }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Product Images */}
         <div className="grid grid-cols-2 gap-4">
-          {product.multiple_images.map((img, index) => (
+          {product?.multiple_images?.map((img, index) => (
             <img
               key={index}
               src={img}
-              alt={`${product.title} ${index + 1}`}
+              alt={`${product?.title} ${index + 1}`}
               className="w-full h-auto rounded-lg shadow-lg"
             />
           ))}
@@ -57,14 +56,16 @@ const ProductDetails = ({ products }) => {
 
           <div className="flex items-center space-x-4">
             <span className="text-2xl font-semibold">Price: {product?.price} Taka</span>
-            <span className="text-sm text-gray-500 line-through">{Math.round(product.price / (1 - product.discount / 100))}</span>
-            <span className="text-sm text-green-600">{product.discount}% off</span>
+            <span className="text-sm text-gray-500 line-through">
+              {Math.round(product?.price / (1 - product.discount / 100))}
+            </span>
+            <span className="text-sm text-green-600">{product?.discount}% off</span>
           </div>
 
           <div className="flex items-center space-x-4">
             <span className="font-semibold">Color:</span>
             <div className="flex space-x-2">
-              {product.color.split(",").map((color, index) => (
+              {product?.color?.split(",").map((color, index) => (
                 <div
                   key={index}
                   className="w-6 h-6 rounded-full"
@@ -119,18 +120,17 @@ const ProductDetails = ({ products }) => {
   );
 };
 
+// Corrected PropTypes definition
 ProductDetails.propTypes = {
-  products: PropTypes.arrayOf(
-    PropTypes.shape({
-      _id: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
-      discount: PropTypes.number.isRequired,
-      color: PropTypes.string.isRequired,
-      multiple_images: PropTypes.arrayOf(PropTypes.string).isRequired,
-    })
-  ).isRequired,
+  product: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    discount: PropTypes.number.isRequired,
+    color: PropTypes.string.isRequired,
+    multiple_images: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }),
 };
 
 export default ProductDetails;

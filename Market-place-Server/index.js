@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors({
-  origin: ["http://localhost:5173","http://localhost:5174"],
+  origin: ["https://curd-11854.web.app","http://localhost:5173"],
   credentials: true,
 }));
 
@@ -45,7 +45,7 @@ const verified = async (req, res, next) => {
 async function run() {
   try {
    
-    await client.connect();
+    // await client.connect();
     console.log("Connected to MongoDB!");
 
     db = client.db("marketplace");
@@ -54,7 +54,7 @@ async function run() {
     const checkouts = db.collection("checkout");
     const bookings = db.collection("bookings");
 
-    app.post("/api/user/access-token",async(req,res)=>{
+  app.post("/api/user/access-token",async(req,res)=>{
         const user=req.body
         console.log(user)
         const token=jwt.sign(user, process.env.SECRET_TOKEN , { expiresIn: '96h' })

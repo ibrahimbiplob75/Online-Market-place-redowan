@@ -24,7 +24,9 @@ const Home = () => {
     queryKey: ["Products"],
     queryFn: getProducts,
   });
-  console.log(Products?.data)
+
+  console.log(Products)
+  
   return (
     <Container>
       {/* Hero Section */}
@@ -35,7 +37,7 @@ const Home = () => {
   <div className='w-full max-w-7xl'>
     <h1 className='text-3xl font-bold text-center mb-8'>New Arrival</h1>
     <div className='grid w-full items-center grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 m-4 place-items-center'>
-    {Products?.data?.result.map(product=><ProductCard product={product} key={product._id}></ProductCard>)}
+    {Products?.data?.result?.map(product=><ProductCard product={product} key={product?._id}></ProductCard>)}
       
       
     </div>

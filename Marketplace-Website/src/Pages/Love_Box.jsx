@@ -77,17 +77,40 @@ const Love_Box = () => {
           <h2 className="font-semibold text-lg mb-4 md:mb-0">
             Find your choiced category:
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 w-full md:w-auto">
-            <div className="form-control">
-              <select
-                onChange={(e) => setPrice(e.target.value)}
-                className="select select-bordered w-full max-w-xs"
-              >
-                <option value={"desc"}>Jamdani Love Book</option>
-                <option value={"asc"}>Kathan Love Box</option>
-              </select>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="form-control">
+                <select
+                  onChange={(e) => setCategory(e.target.value)}
+                  className="select select-bordered w-full max-w-xs"
+                >
+                  <option disabled selected>
+                    Chose category
+                  </option>
+                  {/* {Category?.map((item) => (
+                    <option key={item} value={item}>
+                      {item}
+                    </option>
+                  ))} */}
+                  <option>Jamdani</option>
+                  <option>Katan</option>
+                  <option>Silk</option>
+                  <option>Half Silk</option>
+                  
+                </select>
+              </div>
+              <div className="form-control">
+                <select
+                  onChange={(e) => setPrice(e.target.value)}
+                  className="select select-bordered w-full max-w-xs"
+                >
+                  <option disabled selected>
+                    Price Range
+                  </option>
+                  <option value={"desc"}>High to low</option>
+                  <option value={"asc"}>Low to high</option>
+                </select>
+              </div>
             </div>
-          </div>
         </div>
       </Container>
 
