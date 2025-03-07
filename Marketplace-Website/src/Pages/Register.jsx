@@ -60,7 +60,7 @@ const Register = () => {
       const userData = {
         name: user?.user?.displayName,
         email: user?.user?.email,
-        role: "student",
+        role: "user",
       };
       const res = await Axios.put(
         `/user/create-user/${user?.user?.email}`,

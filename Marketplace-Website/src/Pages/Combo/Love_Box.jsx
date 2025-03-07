@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import UseAxios from "../Hook/UseAxios";
-import Container from "../Components/UI/Container";
-import Loader from "../Components/UI/Loader";
+import UseAxios from "../../Hook/UseAxios";
+import Container from "../../Components/UI/Container";
+import Loader from "../../Components/UI/Loader";
 import { useEffect, useState } from "react";
-import ProductCard from "../Components/ProductCard";
+import ProductCard from "../../Components/ProductCard";
 
-const Saree = () => {
+const Love_Box = () => {
   const Axios = UseAxios();
   const [price, setPrice] = useState("");
   const [page, setPage] = useState(1);
@@ -61,7 +61,7 @@ const Saree = () => {
         {/* Header Section */}
         <div className="my-12 flex flex-col items-center bg-gradient-to-r from-purple-400 to-blue-500 text-white rounded-2xl p-8 shadow-lg">
           <h1 className="text-3xl font-bold mb-4">
-            শাড়িতে নারী মনে হয়, যেন ঐতিহ্যের সৌন্দর্য আর আধুনিকতার মেলবন্ধন একসঙ্গে জেগে উঠেছে
+            শাড়ী চুরী আর নারী 
           </h1>
           <p className="text-sm md:text-lg max-w-2xl text-center">
             <span className="text-2xl">জামদানি শাড়ি:</span>  
@@ -91,10 +91,9 @@ const Saree = () => {
                       {item}
                     </option>
                   ))} */}
-                  <option>Jamdani</option>
-                  <option>Katan</option>
-                  <option>Silk</option>
-                  <option>Half Silk</option>
+                  <option>Jamdani Love Box</option>
+                  <option>Katan Love Box</option>
+                  
                   
                 </select>
               </div>
@@ -158,4 +157,4 @@ const Saree = () => {
   );
 };
 
-export default Saree;
+export default Love_Box;

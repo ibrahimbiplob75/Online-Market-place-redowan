@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import love_box from "../../src/assets/Images/sharee_love_box.jpg"
+import { useState } from "react";
 
 
 const ProductCard = ({ product }) => {
-  console.log(product)
+  // console.log(product)
+  const [expanded, setExpanded] = useState(false);
+
+  if (!product?.description) return null;
   return (
-    <Link to={`/product/details/${product?._id}`} className="card bg-base-100 w-96 shadow-xl">
+    <Link to={`/product/details/${product?._id}`} className="card bg-base-100 w-72 xl:w-96 shadow-xl">
       <figure>
         <img
           src={product?.multiple_images[0]}
@@ -17,7 +21,16 @@ const ProductCard = ({ product }) => {
           {product?.title}
           <div className="badge badge-secondary">NEW</div>
         </h2>
-        <p>{product?.description}</p>
+         <p>
+      {expanded || product.description.length <= 60
+        ? product.description
+        : `${product.description.slice(0, 60)}... `}
+      {product.description.length > 60 && (
+        <button onClick={() => setExpanded(!expanded)} className="text-blue-500 underline">
+          {expanded ? "See Less" : "See More"}
+        </button>
+      )}
+      </p>
         
         <div className="flex justify-between my-2 text-sm">
           <div>

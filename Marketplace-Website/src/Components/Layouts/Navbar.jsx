@@ -57,7 +57,7 @@ const Navbar = () => {
         </div>
 
         {/* Logo */}
-        <Link to="/" className="btn btn-ghost text-2xl">
+        <Link to="/" className="btn btn-ghost text-xl md:text-2xl">
           <p>Redwan</p>
         </Link>
       </div>
@@ -142,11 +142,15 @@ const Navbar = () => {
             </div>
           ) : (
             <Link
-              to="/login"
-              className="btn btn-outline border-white text-white hover:bg-yellow-400 hover:border-yellow-400 hover:text-black"
-            >
-              Sign In
-            </Link>
+  to="/login"
+  className="btn w-full sm:w-auto px-4 py-2 text-sm sm:text-base font-medium btn-outline border-white text-white 
+  hover:bg-yellow-400 hover:border-yellow-400 hover:text-black transition-all duration-300"
+>
+  Sign In
+</Link>
+
+
+
           )}
         </div>
       </div>

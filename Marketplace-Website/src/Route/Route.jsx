@@ -11,10 +11,7 @@ import AddEquipment from "../Pages/AddProducts";
 import MangaeBooking from "../Pages/MangaeBooking";
 import ManageUser from "../Pages/ManageUser";
 import UpdateEquipment from "../Pages/UpdateProduct";
-import BlogDetails from "../Pages/BlogsDetails";
-import MagazineDetails from "../Pages/MagazineDetails";
 import AdminRoute from "../Private/AdminRoute";
-import AddBlogPost from "../Pages/AddBlog";
 import Love_Box from "../Pages/Love_Box";
 import Saree from "../Pages/Saree";
 import Shawl from "../Pages/Shawl";
@@ -57,10 +54,7 @@ const route = createBrowserRouter([
         element:<ProductDetails></ProductDetails>
       },
       
-      {
-        path:"/blog-details/:id",
-        element:<PrivateRoute><BlogDetails></BlogDetails></PrivateRoute>
-      },
+      
       {
         path: "/booking/:id",
         element: (
@@ -113,10 +107,7 @@ const route = createBrowserRouter([
         element: <PrivateRoute><AdminRoute><UpdateEquipment></UpdateEquipment></AdminRoute></PrivateRoute>,
         
       },
-      {
-        path:"/dashboard/add-blogs",
-        element:<AddBlogPost></AddBlogPost>
-      },
+      
     ],
   },
 ]);
