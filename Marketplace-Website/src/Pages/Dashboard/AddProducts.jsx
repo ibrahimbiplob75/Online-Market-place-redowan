@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import UseAxios from "../Hook/UseAxios";
 import { toast } from "react-toastify";
-import UserRole from "../Hook/UserRole";
+import UserRole from "../../Hook/UserRole";
+import UseAxios from "../../Hook/UseAxios";
+
 
 const AddProducts = () => {
   const [role] = UserRole();

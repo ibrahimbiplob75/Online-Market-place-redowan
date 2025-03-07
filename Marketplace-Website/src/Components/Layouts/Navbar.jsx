@@ -58,7 +58,7 @@ const Navbar = () => {
 
         {/* Logo */}
         <Link to="/" className="btn btn-ghost text-xl md:text-2xl">
-          <p>Redwan</p>
+          <p>RUPDHARA</p>
         </Link>
       </div>
 

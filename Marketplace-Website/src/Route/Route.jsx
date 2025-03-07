@@ -4,19 +4,18 @@ import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import Booking from "../Pages/Booking";
-import TrackOrder from "../Pages/TrackOrder";
 import PrivateRoute from "../Private/PrivateRoute";
 import Dashboard from "../Components/Layouts/Dashboard";
-import AddEquipment from "../Pages/AddProducts";
-import MangaeBooking from "../Pages/MangaeBooking";
-import ManageUser from "../Pages/ManageUser";
-import UpdateEquipment from "../Pages/UpdateProduct";
 import AdminRoute from "../Private/AdminRoute";
-import Love_Box from "../Pages/Love_Box";
-import Saree from "../Pages/Saree";
-import Shawl from "../Pages/Shawl";
-import ManageProduct from "../Pages/ManageProduct";
 import ProductDetails from "../Components/ProductDetails";
+import Love_Box from "../Pages/Combo/Love_Box";
+import Saree from "../Pages/Saree/Saree";
+import Shawl from "../Pages/Shawl/Shawl";
+import AddProducts from "../Pages/Dashboard/AddProducts";
+import MangaeBooking from "../Pages/Dashboard/MangaeBooking";
+import ManageProduct from "../Pages/Dashboard/ManageProduct";
+import UpdateProduct from "../Pages/Dashboard/UpdateProduct";
+import ManageUser from "../Pages/Dashboard/ManageUser";
 
 
 
@@ -63,14 +62,14 @@ const route = createBrowserRouter([
           
         ),
       },
-      {
-        path: "/booking/order",
-        element: (
-          <PrivateRoute>
-            <TrackOrder></TrackOrder>
-          </PrivateRoute>
-        ),
-      },
+      // {
+      //   path: "/booking/order",
+      //   element: (
+      //     <PrivateRoute>
+      //       <TrackOrder></TrackOrder>
+      //     </PrivateRoute>
+      //   ),
+      // },
     ],
   },
   {
@@ -92,7 +91,7 @@ const route = createBrowserRouter([
       },
       {
         path: "/dashboard/add-product",
-        element: <PrivateRoute><AdminRoute><AddEquipment></AddEquipment></AdminRoute></PrivateRoute>,
+        element: <PrivateRoute><AdminRoute><AddProducts></AddProducts></AdminRoute></PrivateRoute>,
       },
       {
         path: "/dashboard/booked-product",
@@ -104,7 +103,7 @@ const route = createBrowserRouter([
       },
       {
         path: "/dashboard/update-product/:id",
-        element: <PrivateRoute><AdminRoute><UpdateEquipment></UpdateEquipment></AdminRoute></PrivateRoute>,
+        element: <PrivateRoute><AdminRoute><UpdateProduct></UpdateProduct></AdminRoute></PrivateRoute>,
         
       },
       

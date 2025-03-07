@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import UseAxios from "../Hook/UseAxios";
-import Container from "../Components/UI/Container";
-import Loader from "../Components/UI/Loader";
+import UseAxios from "../../Hook/UseAxios";
+import Container from "../../Components/UI/Container";
+import Loader from "../../Components/UI/Loader";
 import { useEffect, useState } from "react";
-import ProductCard from "../Components/ProductCard";
+import ProductCard from "../../Components/ProductCard";
 
 const Shawl = () => {
   const Axios = UseAxios();

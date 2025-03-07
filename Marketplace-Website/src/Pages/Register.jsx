@@ -10,47 +10,49 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
+  const [imageLink, setImageLink] = useState(""); // New state for image link
   const { createUser, signInWithGoogle } = useAuth();
   const navigate = useNavigate();
   const Axios = UseAxios();
 
   const handleSubmit = async (e) => {
-      e.preventDefault();
+    e.preventDefault();
 
-      
-      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-      if (!passwordRegex.test(password)) {
-        toast.error(
-          "Password must be at least 8 characters long, include one uppercase letter, one number, and one special character"
-        );
-        return;
-      }
+    // Password validation
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!passwordRegex.test(password)) {
+      toast.error(
+        "Password must be at least 8 characters long, include one uppercase letter, one number, and one special character"
+      );
+      return;
+    }
 
-      if (confirm !== password) {
-        toast.error("Passwords do not match");
-        return;
-      }
+    // Confirm password validation
+    if (confirm !== password) {
+      toast.error("Passwords do not match");
+      return;
+    }
 
-      const toastId = toast.loading("Creating user...");
-      const userData = {
-        name,
-        email,
-        role: "user",
-      };
-
-      try {
-        await createUser(email, password);
-        const res = await Axios.put(`/user/create-user/${email}`, userData);
-        if (res.data.upsertedId) {
-          toast.success("User Created", { id: toastId });
-          navigate("/login");
-        }
-      } catch (error) {
-        console.error(error);
-        toast.error(error.message, { id: toastId });
-      }
+    const toastId = toast.loading("Creating user...");
+    const userData = {
+      name,
+      email,
+      image: imageLink, // Include image link in user data
+      role: "user",
     };
 
+    try {
+      await createUser(email, password);
+      const res = await Axios.put(`/user/create-user/${email}`, userData);
+      if (res.data.upsertedId) {
+        toast.success("User Created", { id: toastId });
+        navigate("/login");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error(error.message, { id: toastId });
+    }
+  };
 
   const handleGoogleLogin = async () => {
     const toastId = toast.loading("Logging in...");
@@ -60,6 +62,7 @@ const Register = () => {
       const userData = {
         name: user?.user?.displayName,
         email: user?.user?.email,
+        image: user?.user?.photoURL, // Use Google profile photo as image link
         role: "user",
       };
       const res = await Axios.put(
@@ -85,9 +88,10 @@ const Register = () => {
             Create Your Account
           </h1>
           <p className="text-center text-gray-600 mb-6">
-            Join our magazine platform and explore exclusive content.
+            Join with us and explore exclusive collections and offers.
           </p>
           <form onSubmit={handleSubmit}>
+            {/* Full Name Input */}
             <div className="form-control mb-4">
               <label className="label">
                 <span className="label-text text-lg">Full Name</span>
@@ -100,6 +104,8 @@ const Register = () => {
                 required
               />
             </div>
+
+            {/* Email Input */}
             <div className="form-control mb-4">
               <label className="label">
                 <span className="label-text text-lg">Email Address</span>
@@ -112,6 +118,8 @@ const Register = () => {
                 required
               />
             </div>
+
+            {/* Password Input */}
             <div className="form-control mb-4">
               <label className="label">
                 <span className="label-text text-lg">Password</span>
@@ -128,6 +136,7 @@ const Register = () => {
               </p>
             </div>
 
+            {/* Confirm Password Input */}
             <div className="form-control mb-4">
               <label className="label">
                 <span className="label-text text-lg">Confirm Password</span>
@@ -140,6 +149,25 @@ const Register = () => {
                 required
               />
             </div>
+
+            {/* Image Link Input */}
+            <div className="form-control mb-4">
+              <label className="label">
+                <span className="label-text text-lg">Profile Image Link</span>
+              </label>
+              <input
+                type="url"
+                placeholder="Enter your profile image link"
+                className="input input-bordered rounded-lg"
+                onBlur={(e) => setImageLink(e.target.value)}
+                required
+              />
+              <p className="text-sm text-gray-500 mt-2">
+                Provide a valid URL for your profile image.
+              </p>
+            </div>
+
+            {/* Login Link */}
             <p className="text-center text-sm mb-4">
               Already have an account?{' '}
               <NavLink
@@ -149,17 +177,25 @@ const Register = () => {
                 Login here
               </NavLink>
             </p>
+
+            {/* Sign Up Button */}
             <button
               type="submit"
-              className="btn btn-primary w-full bg-purple-600 hover:bg-purple-700 text-white rounded-lg py-2">
+              className="btn btn-primary w-full bg-purple-600 hover:bg-purple-700 text-white rounded-lg py-2"
+            >
               Sign Up
             </button>
           </form>
+
+          {/* Divider */}
           <div className="divider my-6 text-gray-500">Or continue with</div>
+
+          {/* Google Sign Up Button */}
           <button
             type="button"
             onClick={handleGoogleLogin}
-            className="btn btn-outline w-full flex justify-center items-center border-gray-400 rounded-lg py-2 hover:bg-gray-100">
+            className="btn btn-outline w-full flex justify-center items-center border-gray-400 rounded-lg py-2 hover:bg-gray-100"
+          >
             <FcGoogle className="mr-3 text-2xl" /> Sign up with Google
           </button>
         </div>

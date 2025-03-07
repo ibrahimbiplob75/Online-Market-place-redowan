@@ -1,11 +1,10 @@
 import { QueryClient, useMutation, useQuery } from "@tanstack/react-query";
 
 import { toast } from "react-toastify";
-import UseAxios from "../Hook/UseAxios";
-import Loader from "../Components/UI/Loader";
-import Container from "../Components/UI/Container";
 import { Link } from "react-router-dom";
-import UserRole from "../Hook/UserRole";
+import UserRole from "../../Hook/UserRole";
+import UseAxios from "../../Hook/UseAxios";
+import Container from "../../Components/UI/Container";
 
 const ManageProduct = () => {
     const [role] = UserRole();

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import UseAxios from "../Hook/UseAxios";
+
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import UserRole from "../Hook/UserRole";
+import UserRole from "../../Hook/UserRole";
+import UseAxios from "../../Hook/UseAxios";
 
 const UpdateProduct = () => {
   const { id } = useParams(); 

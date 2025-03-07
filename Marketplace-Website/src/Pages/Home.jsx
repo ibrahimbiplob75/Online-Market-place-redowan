@@ -25,7 +25,7 @@ const Home = () => {
     queryFn: getProducts,
   });
 
-  console.log(Products)
+  // console.log(Products)
   
   return (
     <Container>
