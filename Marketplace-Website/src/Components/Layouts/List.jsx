@@ -11,10 +11,10 @@ const List = () => {
             <Link to={"/love-box"}>Love Box</Link>
             <ul className="menu menu-compact absolute hidden group-hover:block w-96 mt-9 bg-base-100 rounded-box shadow-lg p-2 z-[50]">
               <li>
-                <Link to={"/love-box"}>Jamdani Love Book </Link>
+                <Link to={"/Jamdani-love-box"}>Jamdani Love Book </Link>
               </li>
               <li>
-                <Link to={"/love-box"}>Kathan Love Box</Link>
+                <Link to={"/Kathan-love-box"}>Kathan Love Box</Link>
               </li>
             </ul>
           </li>

@@ -16,6 +16,8 @@ import MangaeBooking from "../Pages/Dashboard/MangaeBooking";
 import ManageProduct from "../Pages/Dashboard/ManageProduct";
 import UpdateProduct from "../Pages/Dashboard/UpdateProduct";
 import ManageUser from "../Pages/Dashboard/ManageUser";
+import JamdaniSaree from "../Pages/Saree/JamdaniSaree";
+import KathanSaree from "../Pages/Saree/KathanSaree";
 
 
 
@@ -34,6 +36,18 @@ const route = createBrowserRouter([
         path: "/love-box",
         element: (
             <Love_Box></Love_Box>
+        ),
+      },
+      {
+        path: "/jamdani-love-box",
+        element: (
+            <JamdaniSaree></JamdaniSaree>
+        ),
+      },
+      {
+        path: "/kathan-love-box",
+        element: (
+            <KathanSaree></KathanSaree>
         ),
       },
       {
