@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../Hook/useAuth";
 import UserRole from "../../Hook/UserRole";
 import profile from "../../assets/Images/423862506_1886857071764399_4892783537603856345_n.jpg"
-
+import UserInfo from "../../Hook/UerInfo";
 import Container from "../UI/Container";
 
 const Navbar = () => {
@@ -12,6 +12,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { user, logOut } = useAuth();
   const [role] = UserRole();
+  const [userinfo] = UserInfo();
 
   const logout = () => {
     logOut().then(() => {
@@ -111,12 +112,22 @@ const Navbar = () => {
                 role="button"
                 className="btn btn-ghost btn-circle avatar"
               >
+                {
+                userinfo.image ?
+                <div className="w-10 rounded-full ring ring-white-400 ring-offset-base-100 ring-offset-2">
+                  <img
+                    alt="User Avatar"
+                    src={userinfo?.image}
+                  />
+                </div>:
                 <div className="w-10 rounded-full ring ring-white-400 ring-offset-base-100 ring-offset-2">
                   <img
                     alt="User Avatar"
                     src={profile}
                   />
                 </div>
+              
+              }
               </div>
               <ul
                 tabIndex={0}

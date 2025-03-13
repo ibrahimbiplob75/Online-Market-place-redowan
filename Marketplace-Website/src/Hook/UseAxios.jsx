@@ -2,10 +2,9 @@ import axios from 'axios';
 import useAuth from './useAuth';
 
  const instance = axios.create({
-  
-  //https://market-place-server-iota.vercel.app/
+  //https://market-place-server-ashen.vercel.app/
   //http://localhost:3000
-   baseURL: "http://localhost:3000/api",
+   baseURL: "https://market-place-server-ashen.vercel.app/api",
    withCredentials: true,
    
  });

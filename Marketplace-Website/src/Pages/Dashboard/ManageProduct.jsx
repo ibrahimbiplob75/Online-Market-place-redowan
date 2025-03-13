@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import UserRole from "../../Hook/UserRole";
 import UseAxios from "../../Hook/UseAxios";
 import Container from "../../Components/UI/Container";
+import Loader from "../../Components/UI/Loader";
 
 const ManageProduct = () => {
     const [role] = UserRole();
